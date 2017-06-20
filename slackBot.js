@@ -9,7 +9,7 @@ bot.startRTM(function(err,bot,payload){
 	if(err){
 		throw new Error('Failure to connect')
 	}
-	botCntrl.hears(["Hello","Hi","Good day"], ["direct_message","direct_mention","mention","ambience","mention"], function(bot,message){
+	botCntrl.hears(["Hello","Hi","Good day"], ["direct_message","direct_mention","mention","ambient"], function(bot,message){
 		bot.reply(message, "Hello there my name is SlackBot123.")
 	})
 })
