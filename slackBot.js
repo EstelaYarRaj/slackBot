@@ -1,5 +1,5 @@
 var botkit = require('botkit');
-var botCntrl = botkit.slackBot();
+var botCntrl = botkit.slackbot();
 
 var bot = botCntrl.spawn({
 	token : 'xoxb-200336080708-kVd39lkezl4ITKxqsCcIR35J'
