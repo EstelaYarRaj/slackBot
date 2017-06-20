@@ -1,4 +1,4 @@
-var botkit = required('botkit');
+var botkit = require('botkit');
 var botCntrl = botkit.slackBot();
 
 var bot = botCntrl.spawn({
