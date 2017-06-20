@@ -1,0 +1,6 @@
+1) install botkit 
+2) open windows powershell
+3) change directory to cloned repository 
+4) run node slackBot.js
+
+Node is required to run the code. https://botintern.slack.com is the channel 
