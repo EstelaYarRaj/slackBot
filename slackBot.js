@@ -2,7 +2,7 @@ var botkit = require('botkit');
 var botCntrl = botkit.slackbot();
 
 var bot = botCntrl.spawn({
-	token : 'xoxb-200336080708-kVd39lkezl4ITKxqsCcIR35J'
+	token : /** get from slack app **/
 })
 
 bot.startRTM(function(err,bot,payload){
