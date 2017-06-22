@@ -1,8 +1,14 @@
 var botkit = require('botkit');
 var botCntrl = botkit.slackbot();
 
+System.out.println("Enter token: ");
+
+Scanner reader = new Scanner(System.in);
+string userToken = reader.nextString();
+reader.close();
+
 var bot = botCntrl.spawn({
-	token : /** get from slack app **/
+	token : userToken;
 })
 
 bot.startRTM(function(err,bot,payload){
