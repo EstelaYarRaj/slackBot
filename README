@@ -1,4 +1,4 @@
-1) install botkit 
+1) install botkit, prompt, express npm
 2) open windows powershell
 3) change directory to cloned repository 
 4) run node slackBot.js
