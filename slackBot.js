@@ -1,51 +1,31 @@
-var express = require('express');
+
 var botkit = require('botkit');
-var botCntrl = botkit.slackbot();
-var prompt = require('prompt');
-var app = express();
+var controller = botkit.slackbot();
+
+var bot = controller.spawn({
  
-app.get('/', function (req, res) {
-	var x = 0;
-	while (x == 0)
-	{ 
-	
-		prompt.get(['token'], function(err, result){
-			console.log('Enter Token :' + result.token);
-			var bot = botCntrl.spawn({
-				token : result.token 
-				})
-			});
-			if (result.token != null)
-			{
-				x = 1;
-				console.log('123 Attempting to connect to Slack...');
-				bot.startRTM(function(err,bot,payload){
-					if(err){
-						throw new Error('Failure to connect')
-						res.send('Failed connection to Slack');
-					}
-					else
-					{
-						res.send('Connected');
-					}
-					botCntrl.hears(["Hello","Hi","Good day"], ["direct_message","direct_mention","mention","ambient"], function(bot,message){
-						bot.reply(message, "Hello there my name is SlackBot123.")
-					})
-				})
-			}
-			else
-			{
-				console.log('Please enter token');
-			}
-	
-	};
-  
+  token: "xoxb-217287311765-DeXbDaCJ6VSyYJnY97g4I0KK"
+ 
+})
+ 
+bot.startRTM(function(err,bot,payload) {
+ 
+  if (err) {
+ 
+    throw new Error('Could not connect to Slack');
+ 
+  }
+ 
 });
  
-app.listen(process.env.PORT || 5000);
+controller.hears(["Hello","Hi"],["direct_message","direct_mention","mention","ambient"],function(bot,message) {
  
-module.exports = app;
+  bot.reply(message,'Hello, how are you today?');
+ 
+});
 
-
-
-
+controller.hears(["Fine","Doing great"],["direct_message","direct_mention","mention","ambient"],function(bot,message) {
+	 
+	  bot.reply(message,'Thats good!');
+	 
+	});
